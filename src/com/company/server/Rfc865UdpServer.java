@@ -14,12 +14,7 @@ public class Rfc865UdpServer {
     public static void main(String[] args) {
 
         try {
-            socket = new DatagramSocket(8000);
-            String p = "";
-            for(int i = 0; i < 1000; i++) {
-                p += "a";
-            }
-
+            socket = new DatagramSocket(17);
             while(true) {
                 try {
                     byte[] requestBuffer = new byte[512];
@@ -27,9 +22,12 @@ public class Rfc865UdpServer {
                     System.out.println("UDP listening");
                     socket.receive(request);
                     System.out.println("Get datagram package from address " + request.getAddress() + " port " + request.getPort());
-
-                    String quote = "Kiasu is the best thing!";
-                    byte[] replyBuffer = p.getBytes();
+                    String clientName = new String(request.getData(), 0, request.getLength());
+                    System.out.println("Log: " + clientName);
+                    
+                            
+                    String quote = "Edward kiasu!";
+                    byte[] replyBuffer = quote.getBytes();
                     System.out.println(replyBuffer.length);
                     DatagramPacket reply = new DatagramPacket(replyBuffer, replyBuffer.length, request.getAddress(), request.getPort());
                     socket.send(reply);
