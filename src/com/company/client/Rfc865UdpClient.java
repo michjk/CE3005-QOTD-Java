@@ -14,10 +14,9 @@ public class Rfc865UdpClient {
         try {
             socket = new DatagramSocket(8000);
             try {
-                String requestString = "Michael Jonathan, SEP1, "
-                        + "172.21.146.118";
+                String requestString = "I am user";
                 byte[] requestBuffer = requestString.getBytes();
-                InetAddress address = InetAddress.getByName("hw1-a00");
+                InetAddress address = InetAddress.getByName("localhost");
                 DatagramPacket request = new DatagramPacket(requestBuffer, 
                     requestBuffer.length, address, 17);
                 
