@@ -26,7 +26,7 @@ public class Rfc865UdpServer {
                     System.out.println("Log: " + clientName);
                     
                             
-                    String quote = "Edward kiasu!";
+                    String quote = "\"Peace cannot be kept by force; it can only be achieved by understanding.\" -Albert Einstein";
                     byte[] replyBuffer = quote.getBytes();
                     System.out.println(replyBuffer.length);
                     DatagramPacket reply = new DatagramPacket(replyBuffer, replyBuffer.length, request.getAddress(), request.getPort());
